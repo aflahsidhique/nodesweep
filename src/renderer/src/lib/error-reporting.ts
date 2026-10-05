@@ -16,13 +16,9 @@ function report(level: 'error' | 'warn', args: unknown[]): void {
       message: args.map(stringify).join(' '),
       details: error?.stack
     })
-  } catch {
-    // Reporting must never throw back into the caller.
-  }
+  } catch {}
 }
 
-// Forwards renderer console errors/warnings and uncaught errors to the main
-// process so they show up in the in-app error console.
 export function installRendererErrorReporting(): void {
   const originalError = console.error.bind(console)
   const originalWarn = console.warn.bind(console)

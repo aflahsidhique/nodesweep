@@ -11,11 +11,6 @@ function isInsideRoot(target: string, root: string): boolean {
   return rel !== '' && rel !== '.' && !rel.startsWith('..') && !isAbsolute(rel)
 }
 
-/**
- * Guards against deleting anything other than a node_modules directory that
- * actually lives inside one of the folders/drives the user explicitly chose
- * to scan. This is the only gate between the renderer and the filesystem.
- */
 export function validateDeletionTarget(targetPath: string, allowedRoots: string[]): ValidationResult {
   if (!isAbsolute(targetPath)) {
     return { valid: false, reason: 'Path is not absolute.' }

@@ -31,7 +31,6 @@ export const useLogStore = create<LogState>((set) => ({
       }))
     })
     const existing = await window.nodeSweep.getLogs()
-    // Entries that arrived over the live channel while fetching are already in the history.
     const known = new Set(existing.map((e) => e.id))
     set((state) => {
       const live = state.logs.filter((e) => !known.has(e.id))

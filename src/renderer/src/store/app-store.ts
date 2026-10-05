@@ -123,7 +123,6 @@ export const useAppStore = create<AppState>((set, get) => ({
       const deletedIds = new Set(results.filter((r) => r.success).map((r) => r.id))
       const failed = results.filter((r) => !r.success)
 
-      // give the fade-out animation time to play before the rows actually disappear
       await new Promise((resolve) => setTimeout(resolve, 300))
 
       const remaining = scanSummary.candidates.filter((c) => !deletedIds.has(c.id))

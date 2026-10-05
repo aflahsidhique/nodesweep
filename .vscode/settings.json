@@ -1,6 +1,4 @@
 {
-  // VS Code runs on Electron and opens .asar files as archives when it watches or
-  // indexes them, which locks dist/**/app.asar and breaks `npm run build:win`.
   "files.watcherExclude": {
     "**/dist/**": true,
     "**/out/**": true,

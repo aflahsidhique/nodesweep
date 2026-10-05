@@ -13,8 +13,6 @@ export function ConfirmDeleteDialog({ candidates, onClose }: ConfirmDeleteDialog
   const { deleteSelected } = useAppStore()
   const totalBytes = candidates.reduce((sum, c) => sum + c.sizeBytes, 0)
 
-  // Deletion runs in the background so the dialog closes immediately and the
-  // affected rows can animate out in the table instead of behind an overlay.
   const handleDelete = (): void => {
     void deleteSelected()
     onClose()

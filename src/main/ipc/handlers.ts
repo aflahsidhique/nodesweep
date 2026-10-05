@@ -11,8 +11,6 @@ let activeScan: ScanController | null = null
 
 type InvokeListener = Parameters<typeof ipcMain.handle>[1]
 
-// Registers an invoke handler that records any thrown error in the error console
-// before rejecting back to the renderer.
 function handle(channel: string, listener: InvokeListener): void {
   ipcMain.handle(channel, async (event, ...args) => {
     try {

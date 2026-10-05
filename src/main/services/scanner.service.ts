@@ -152,9 +152,7 @@ async function directorySize(dir: string, controller: ScanController): Promise<n
         try {
           const stat = await fs.stat(full)
           total += stat.size
-        } catch {
-          // file may have been removed or locked mid-scan; skip it
-        }
+        } catch {}
       }
     })
   }
@@ -170,19 +168,14 @@ async function lastActivity(projectPath: string, detectGitActivity: boolean): Pr
     try {
       const stat = await fs.stat(join(projectPath, file))
       candidateTimes.push(stat.mtimeMs)
-    } catch {
-      // file not present in this project
-    }
+    } catch {}
   }
 
   if (detectGitActivity) {
     try {
-      // Reading .git/HEAD's mtime avoids spawning a git process per project.
       const stat = await fs.stat(join(projectPath, '.git', 'HEAD'))
       candidateTimes.push(stat.mtimeMs)
-    } catch {
-      // not a git repository
-    }
+    } catch {}
   }
 
   if (candidateTimes.length === 0) {

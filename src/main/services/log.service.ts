@@ -45,7 +45,6 @@ function describe(args: unknown[]): { message: string; details?: string } {
   return { message, details: error?.stack }
 }
 
-// Mirrors main-process console errors/warnings and crashes into the in-app error console.
 export function installMainProcessLogging(): void {
   const originalError = console.error.bind(console)
   const originalWarn = console.warn.bind(console)

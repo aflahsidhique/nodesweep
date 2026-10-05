@@ -1,5 +1,3 @@
-; Custom NSIS pages for the NodeSweep installer (picked up automatically by electron-builder).
-
 !macro customWelcomePage
   !define MUI_WELCOMEPAGE_TITLE "Welcome to the ${PRODUCT_NAME} Setup Wizard"
   !define MUI_WELCOMEPAGE_TITLE_3LINES
