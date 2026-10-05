@@ -1,0 +1,57 @@
+{
+  "name": "nodesweep",
+  "version": "1.0.0",
+  "description": "Clean unused node_modules. Keep what matters.",
+  "main": "./out/main/index.js",
+  "author": "aflahsidhique",
+  "license": "MIT",
+  "homepage": "https://github.com/aflahsidhique/nodesweep#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aflahsidhique/nodesweep.git"
+  },
+  "bugs": {
+    "url": "https://github.com/aflahsidhique/nodesweep/issues"
+  },
+  "private": true,
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview",
+    "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
+    "typecheck:web": "tsc --noEmit -p tsconfig.web.json --composite false",
+    "typecheck": "npm run typecheck:node && npm run typecheck:web",
+    "lint": "eslint . --ext .ts,.tsx",
+    "test": "vitest run",
+    "build:win": "npm run build && electron-builder --win"
+  },
+  "devDependencies": {
+    "@electron-toolkit/tsconfig": "^1.0.1",
+    "@electron-toolkit/utils": "^3.0.0",
+    "@types/node": "^22.10.5",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@typescript-eslint/eslint-plugin": "^8.19.1",
+    "@typescript-eslint/parser": "^8.19.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "electron": "^33.3.1",
+    "electron-builder": "^25.1.8",
+    "electron-store": "^8.2.0",
+    "electron-vite": "^2.3.0",
+    "eslint": "^8.57.1",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "lucide-react": "^0.469.0",
+    "postcss": "^8.5.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.6.0",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3",
+    "vite": "^5.4.11",
+    "vitest": "^2.1.8",
+    "zustand": "^5.0.3"
+  }
+}

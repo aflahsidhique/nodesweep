@@ -1,0 +1,32 @@
+appId: com.nodesweep.app
+productName: NodeSweep
+directories:
+  buildResources: build
+# Everything the app needs is bundled into out/ by electron-vite, so only ship that.
+files:
+  - out/**/*
+  - resources/**
+  - package.json
+# The UI is English-only; drop the other Chromium language packs (~40 MB).
+electronLanguages:
+  - en-US
+compression: maximum
+asarUnpack:
+  - resources/**
+win:
+  target: nsis
+  icon: build/icon.ico
+  artifactName: '${productName}-${version}-setup.${ext}'
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  installerIcon: build/icon.ico
+  uninstallerIcon: build/icon.ico
+  installerHeaderIcon: build/icon.ico
+  installerSidebar: build/installerSidebar.bmp
+  uninstallerSidebar: build/installerSidebar.bmp
+  installerHeader: build/installerHeader.bmp
+  include: build/installer.nsh
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  shortcutName: NodeSweep
